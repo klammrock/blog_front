@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 //import App from './App';
 //import reportWebVitals from './reportWebVitals';
 
-import Main from './containers/app/main/index';
+import Main from './containers/app/Main/index';
 //import { FocusStyleManager } from '@blueprintjs/core'
 import 'moment/locale/ru'
 
