@@ -8,15 +8,19 @@ import { fetchPosts } from 'redux/modules/app'
 
 function* fetchPostsIterator({ payload: { cb } }) {
   try {
-    const { success, data, error } = yield call(apiPosts.index, '')
-    if (success) {
-      yield call(cb, { isSuccess: true, data })
-      // yield put(fetchErrors.success(data))
-    } else {
-      yield call(cb, { isSuccess: false, error })
-      yield call(console.error, error)
-      yield put(fetchPosts.failure())
-    }
+    // const { success, data, error } = yield call(apiPosts.index, '')
+    // if (success) {
+    //   yield call(cb, { isSuccess: true, data })
+    //   // yield put(fetchErrors.success(data))
+    // } else {
+    //   yield call(cb, { isSuccess: false, error })
+    //   yield call(console.error, error)
+    //   yield put(fetchPosts.failure())
+    // }
+
+    const data = yield call(apiPosts.index, '')
+    yield call(cb, { isSuccess: true, data })
+    yield put(fetchPosts.success(data))
   } catch (e) {
     // TODO: error
     yield call(cb, { isSuccess: false })
